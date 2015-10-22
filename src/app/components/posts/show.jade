@@ -1,0 +1,51 @@
+div(layout="row")
+  div(flex="10")
+  div(flex="70")
+    h3(ng-bind="Show.post.title")
+
+    div(ng-if="Show.publication", layout="row")
+      md-button.md-icon-button(ng-click="Show.publication = undefined")
+        md-icon.md-dark(md-font-set="material-icons") remove_circle_outline
+      md-autocomplete(
+        flex, md-search-text="Show.searchText",
+        md-items="item in Show.queryJournals(Show.searchText)",
+        md-delay="500",
+        md-item-text="item.name",
+        md-selected-item="Show.publication.journal",
+        md-selected-item-change="Show.log( Show.publication)",
+        placeholder="Recommend to an Journal for publication")
+        md-item-template
+          div(ng-bind="item.name")
+          p(ng-bind="item.desc")
+        md-not-found No matches found for "{{Show.searchText}}".
+      md-button(ng-click="Show.publication.$save()",
+        ng-disabled="!Show.publication.journal.id") create
+
+    div(ng-bind-html="Show.post.content")
+  div
+    md-toolbar(layout="row", layout-align="center center", md-theme="scixiv")
+      md-button.md-icon-button(ui-sref="user.posts({id: Show.post.user.id})")
+        img.fit(ng-src="{{Show.post.user.avatar_url}}", alt="gravatar")
+
+
+div(layout="row", ng-repeat="comment in Show.post.comments")
+  div(flex="10")
+  div(flex="70")
+    h4(ng-bind="comment.title")
+    div(ng-bind-html="comment.content")
+  div
+    md-toolbar(layout="row", layout-align="center center", md-theme="scixiv")
+      md-button.md-icon-button(ui-sref="user.posts({id: comment.user.id})")
+        img.fit(ng-src="{{comment.user.avatar_url}}", alt="gravatar")
+
+div(layout="row")
+  div(flex="10")
+  div(flex="70")
+    h3 reply
+    md-input-container
+      label comment title
+      input(ng-model="Show.comment.title")
+    div(text-angular="", ng-model="Show.comment.content")
+
+    md-button(ng-click="Show.comment.$save()") comment
+

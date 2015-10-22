@@ -7,3 +7,5 @@ coverage/
 dist/
 
 typings/
+.DS_Store
+.sublime-gulp.cache

@@ -1,0 +1,8 @@
+md-input-container
+  label title
+  input(ng-model="New.post.title")
+md-checkbox(ng-model="New.post.to_public") open to public?
+div(text-angular="", ng-model="New.post.content")
+
+md-button(ng-click="New.post.$save()") save
+

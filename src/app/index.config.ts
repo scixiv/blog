@@ -1,11 +1,8 @@
 /** @ngInject */
-export function config($logProvider: ng.ILogProvider, toastrConfig: any) {
+export function config($logProvider: ng.ILogProvider, $locationProvider: any) {
   // enable log
   $logProvider.debugEnabled(true);
-  // set options third-party lib
-  toastrConfig.allowHtml = true;
-  toastrConfig.timeOut = 3000;
-  toastrConfig.positionClass = 'toast-top-right';
-  toastrConfig.preventDuplicates = true;
-  toastrConfig.progressBar = true;
+
+  // enable html5 mode for url
+  $locationProvider.html5Mode(true).hashPrefix('!');
 }

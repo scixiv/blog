@@ -21,7 +21,7 @@ function webpackWrapper(watch, test, callback) {
   };
 
   if(watch) {
-    webpackOptions.devtool = 'inline-source-map';
+    webpackOptions.devtool = 'source-map';
   }
 
   var webpackChangeHandler = function(err, stats) {

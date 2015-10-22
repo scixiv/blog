@@ -1,0 +1,3 @@
+[submodule "json_model"]
+	path = json_model
+	url = git@github.com:scixiv/json-model.git

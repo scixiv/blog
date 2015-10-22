@@ -59,33 +59,37 @@ html {
   padding: 0.2em 0;
 }
 
-md-toolbar.md-default-theme {
-  background-color: black;
+.md-button {
+  text-transform: none;
 }
 
-section.jumbotron {
-  margin-bottom: 30px;
-  padding: 1px 30px;
-  background-color: #5aadbb;
-  text-align: center;
-
-  color: white;
-
-  h1 {
-    font-size: 3em;
-  }
+.fit {
+  width:100%;
+  height:100%;
 }
 
-.techs {
-  display: flex;
-  flex-flow: row wrap;
+.profile-avator {
+  width: 200px;
+  height: 200px;
+  border-radius: 100px;
+  overflow: hidden;
+}
 
-  md-card {
-    width: 30%;
+.clickable {
+  cursor:pointer;
+}
 
-    img.pull-right {
-      float: right;
-      width: 100px;
+ul.tab-nav {
+  margin: 0;
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+  border-bottom-color: green;
+  & li {
+    display: inline;
+    & .active {
+      border-bottom-width: 2px;
+      border-bottom-style: solid;
+      border-bottom-color: green;
     }
   }
 }
