@@ -1,8 +1,18 @@
-div(layout="row")
-  div(flex="10")
-  div(flex="70")
-    h3(ng-bind="Show.post.title")
+md-toolbar(md-theme="scixiv")
+  .md-toolbar-tools
+    md-button.sc-auth-menu.md-icon-button(ui-sref="user.posts")
+      img.fit(ng-src="{{vm.bloger.avatar_url}}", alt="gravatar")
+    span(flex)
+    h1(ng-bind="Show.post.title")
+    span(flex)
+    md-button(href="https://www.scixiv.com")
+      | Sci &#183; Xiv
+      md-icon keyboard_arrow_right
 
+
+div(layout="row", layout-padding)
+  div(flex='20', flex-sm="0")
+  div(flex="60", flex-sm="80")
     div(ng-if="Show.publication", layout="row")
       md-button.md-icon-button(ng-click="Show.publication = undefined")
         md-icon.md-dark(md-font-set="material-icons") remove_circle_outline
@@ -28,9 +38,9 @@ div(layout="row")
         img.fit(ng-src="{{Show.post.user.avatar_url}}", alt="gravatar")
 
 
-div(layout="row", ng-repeat="comment in Show.post.comments")
-  div(flex="10")
-  div(flex="70")
+div(layout="row", ng-repeat="comment in Show.post.comments", layout-padding)
+  div(flex='20', flex-sm="0")
+  div(flex="60", flex-sm="80")
     h4(ng-bind="comment.title")
     div(ng-bind-html="comment.content")
   div
@@ -38,14 +48,11 @@ div(layout="row", ng-repeat="comment in Show.post.comments")
       md-button.md-icon-button(ui-sref="user.posts({id: comment.user.id})")
         img.fit(ng-src="{{comment.user.avatar_url}}", alt="gravatar")
 
-div(layout="row")
-  div(flex="10")
-  div(flex="70")
-    h3 reply
-    md-input-container
-      label comment title
-      input(ng-model="Show.comment.title")
-    div(text-angular="", ng-model="Show.comment.content")
-
-    md-button(ng-click="Show.comment.$save()") comment
-
+div(layout="row", layout-padding)
+  div(flex='20', flex-sm="0")
+  div(flex="60", flex-sm="80")
+    h3
+      | leave your &nbsp;
+      md-icon comment
+      a(ng-href="https://www.scixiv.com/articles/{{Show.post.id}}") comment
+      | &nbsp; through scixiv.com

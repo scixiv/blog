@@ -1,9 +1,22 @@
+md-toolbar(md-theme="scixiv")
+  .md-toolbar-tools
+    span(flex)
+      a(ui-sref="user.posts")
+        span.md-title Sci &#183; Xiv
+        | &nbsp;
+        span.md-caption beta
+    h2
+      | Welcome to &nbsp;
+      span(ng-bind="Show.user.username")
+      | 's &nbsp; homepage
+    span(flex)
+
+
 div(layout="row", layout-padding)
   div(flex)
   div
     div.profile-avator
       img.fit(ng-src="{{Show.user.avatar_url}}", alt="gravatar")
-  div(flex="10")
   div(flex)
 
 

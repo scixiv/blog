@@ -1,7 +1,0 @@
-div(
-  ng-repeat="journal in Show.user.journals", layout="row")
-  div(flex='20')
-  div
-    h3.clickable(
-      ng-bind="journal.name", ui-sref="journals.one.show({id: journal.id})")
-    p(ng-bind="journal.desc")

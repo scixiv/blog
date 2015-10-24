@@ -4,8 +4,7 @@ import {BaseController} from './../../utils/utils.controller'
 export function usersRouter($stateProvider: ng.ui.IStateProvider) {
   $stateProvider
     .state('user', {
-      parent: 'home',
-      url: '',
+      url: '/',
       abstract: true,
       templateUrl: 'app/components/users/show.html',
       controller: UserController,
@@ -15,11 +14,6 @@ export function usersRouter($stateProvider: ng.ui.IStateProvider) {
     .state('user.posts', {
       url: '',
       templateUrl: 'app/components/users/posts.html'
-    })
-
-    .state('user.journals', {
-      url: 'journals',
-      templateUrl: 'app/components/users/journals.html',
     })
 
 }

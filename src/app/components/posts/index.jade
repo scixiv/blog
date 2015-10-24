@@ -1,5 +1,0 @@
-div(ng-repeat="post in Index.posts", layout="row")
-  div(flex='20')
-  div
-    h2.clickable(ng-bind="post.title", ui-sref="posts.one.show({id: post.id})")
-    div(ng-bind-html="post.content")

@@ -5,6 +5,7 @@ import { routerConfig } from './index.route';
 import { runBlock } from './index.run';
 import { usersRouter } from '../app/components/users/users.router';
 import { postsRouter } from '../app/components/posts/posts.router';
+import { scAuthMenu } from '../app/components/navbar/navbar.directive';
 
 import '../app/utils/utils.module';
 
@@ -17,4 +18,5 @@ module blog {
     .config(usersRouter)
     .config(postsRouter)
     .run(runBlock)
+    .directive('scAuthMenu', scAuthMenu);
 }

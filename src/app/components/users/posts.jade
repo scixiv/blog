@@ -1,6 +1,6 @@
-div(
-  ng-repeat="post in Show.user.posts", layout="row")
-  div(flex='20')
+div(ng-repeat="post in Show.user.posts", layout="row", layout-padding)
+  div(flex='20', flex-sm="0")
   div
     h2.clickable(ng-bind="post.title", ui-sref="posts.one.show({id: post.id})")
-    div(ng-bind-html="post.content")
+    div(ng-bind-html="post.abstract")
+  div(flex='20', flex-sm="0")
